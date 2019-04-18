@@ -1,6 +1,7 @@
 This project is an extended version of Fayao Liu's published work - https://bitbucket.org/fayao/dcnf-fcsp (https://arxiv.org/pdf/1502.07411.pdf)
 I am citing their work. On top of their work, I have  built a GUI using Matlab guide to better show the results. I have also extended the test samples to use more images from datasets.
 
+Please download trained model files from - https://drive.google.com/drive/folders/1pgLLw2o2vuZo3zMdCSbRAmLT6Pu3hvyu?usp=sharing
 
 Dependencies:
 Matlab 2019 version
