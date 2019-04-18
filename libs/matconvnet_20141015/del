@@ -1,0 +1,29 @@
+/home/suriya/Swathi/matlab_new/bin/mex -c -largeArrayDims -lmwblas -g "matlab/src/bits/im2col.cpp"
+Building with 'g++'.
+MEX completed successfully.
+mv -f "im2col.o" "matlab/src/bits/im2col.o"
+/home/suriya/Swathi/matlab_new/bin/mex -c -largeArrayDims -lmwblas -g "matlab/src/bits/pooling.cpp"
+Building with 'g++'.
+MEX completed successfully.
+mv -f "pooling.o" "matlab/src/bits/pooling.o"
+/home/suriya/Swathi/matlab_new/bin/mex -c -largeArrayDims -lmwblas -g "matlab/src/bits/normalize.cpp"
+Building with 'g++'.
+MEX completed successfully.
+mv -f "normalize.o" "matlab/src/bits/normalize.o"
+/home/suriya/Swathi/matlab_new/bin/mex -c -largeArrayDims -lmwblas -g "matlab/src/bits/subsample.cpp"
+Building with 'g++'.
+MEX completed successfully.
+mv -f "subsample.o" "matlab/src/bits/subsample.o"
+/usr/local/cuda/bin/nvcc -c  -g --compiler-options=-fPIC "matlab/src/bits/pooling_gpu.cu" -o "matlab/src/bits/pooling_gpu.o" 2> >( sed 's/^\(.*\)(\([0-9][0-9]*\)): \([ew].*\)/\1:\2: \3/g' >&2 )
+/usr/local/cuda/bin/nvcc -c  -g --compiler-options=-fPIC "matlab/src/bits/normalize_gpu.cu" -o "matlab/src/bits/normalize_gpu.o" 2> >( sed 's/^\(.*\)(\([0-9][0-9]*\)): \([ew].*\)/\1:\2: \3/g' >&2 )
+/usr/local/cuda/bin/nvcc -c  -g --compiler-options=-fPIC "matlab/src/bits/subsample_gpu.cu" -o "matlab/src/bits/subsample_gpu.o" 2> >( sed 's/^\(.*\)(\([0-9][0-9]*\)): \([ew].*\)/\1:\2: \3/g' >&2 )
+echo matlab/mex/vl_nnconv.mexa64
+matlab/mex/vl_nnconv.mexa64
+MW_NVCC_PATH='/usr/local/cuda/bin/nvcc' /home/suriya/Swathi/matlab_new/bin/mex \
+   -output "matlab/mex/vl_nnconv.mexa64" \
+   "matlab/src/vl_nnconv.cu" matlab/src/bits/im2col.o matlab/src/bits/pooling.o matlab/src/bits/normalize.o matlab/src/bits/subsample.o matlab/src/bits/im2col_gpu.o matlab/src/bits/pooling_gpu.o matlab/src/bits/normalize_gpu.o matlab/src/bits/subsample_gpu.o \
+   -DENABLE_GPU -f matlab/src/config/mex_CUDA_glnxa64.xml -largeArrayDims -lmwblas -g -L/usr/local/cuda/lib64 -lcublas -lcudart \
+   2> >( sed 's/^\(.*\)(\([0-9][0-9]*\)): \([ew].*\)/\1:\2: \3/g' >&2 )
+Building with 'nvcc'.
+Makefile:137: recipe for target 'matlab/mex/vl_nnconv.mexa64' failed
+rm matlab/src/bits/pooling_gpu.o matlab/src/bits/im2col.o matlab/src/bits/normalize.o matlab/src/bits/pooling.o matlab/src/bits/subsample.o matlab/src/bits/normalize_gpu.o matlab/src/bits/subsample_gpu.o
